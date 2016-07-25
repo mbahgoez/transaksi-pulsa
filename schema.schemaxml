@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">trx-pulsa</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="transaksi" view="colnames">
+<left>192</left>
+<top>37</top>
+<width>139</width>
+<height>226</height>
+<sql_create_table>CREATE TABLE `transaksi` (
+  `id_trx` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_penerima` varchar(100) NOT NULL,
+  `no_penerima` int(100) NOT NULL,
+  `kode_nominal` varchar(255) NOT NULL,
+  `harga_beli` decimal(10,2) NOT NULL,
+  `harga_jual` decimal(10,2) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `labatrx` decimal(10,2) NOT NULL,
+  `status` enum('lunas','hutang') NOT NULL,
+  PRIMARY KEY (`id_trx`),
+  KEY `kode_nominal` (`kode_nominal`),
+  CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`kode_nominal`) REFERENCES `nominal` (`kode_nominal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="nominal" view="standard">
+<left>490</left>
+<top>18</top>
+<width>174</width>
+<height>177</height>
+<sql_create_table>CREATE TABLE `nominal` (
+  `kode_nominal` varchar(100) NOT NULL COMMENT 'Kode Nominal/Kode Trx',
+  `harga_jual` decimal(10,2) DEFAULT NULL COMMENT 'Harga Pulsa Dijual',
+  `harga_beli` decimal(10,2) DEFAULT NULL COMMENT 'Harga Beli/Potong Dari Saldo',
+  PRIMARY KEY (`kode_nominal`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

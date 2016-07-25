@@ -1,0 +1,15 @@
+Menu
+- Buat Transaksi
+	Form : Nama Penerima, NoPenerima, KodeNominalTrx, status(hutang, lunas)
+	
+- Sesuaikan Harga
+	KodeNominalTrx, HargaBeli, HargaJual
+	
+- Cek Transaksi
+	List All : NamaPenerima, NoPenerima, KodeNominalTrx, HargaBeli, HargaJual ,Tanggal(timestamp), KeuntunganPerTrx, Status(Hutang,Lunas)
+	List Hutang,
+	List Lunas
+	
+- Pendapatan
+	Harian(Lunas, Hutang/Belum Lunas), Mingguan(Lunas, Hutang/Belum Lunas), Bulanan(Lunas, Hutang/Belum Lunas),
+	Keseluruhan(Lunas, Belumlunas)
